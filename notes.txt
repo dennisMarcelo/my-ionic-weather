@@ -1,0 +1,15 @@
+We want to build. For this example application, I have set out the following requirements:
+    - Weather data should be displayed on the main page of the application.
+
+    - The weather data displayed should include the current temperature, the minimum, 
+      the maximum, and a general description The user should be able to set their preferred 
+      unit of measurement (Celsius or Fahrenheit).
+
+    - The weather data displayed should default to the user's current location.
+
+    - If the user wishes, they may supply a specific location, and weather data for that
+      location should be used instead.
+
+    - The user should be able to easily "refresh" the weather data.
+
+    - The user's settings should persist after the application is reloaded
