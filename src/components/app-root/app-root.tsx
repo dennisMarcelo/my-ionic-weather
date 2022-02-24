@@ -10,7 +10,7 @@ export class AppRoot {
       <ion-app>
         <ion-router useHash={false}>
           <ion-route url="/" component="app-home" />
-          <ion-route url="/profile/:name" component="app-profile" />
+          <ion-route url="/settings" component="app-settings" />
         </ion-router>
         <ion-nav />
       </ion-app>
