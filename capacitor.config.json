@@ -1,0 +1,6 @@
+{
+  "appId": "com.tempus.myionicweather",
+  "appName": "my-ionic-weather",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
