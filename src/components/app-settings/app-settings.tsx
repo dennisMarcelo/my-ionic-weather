@@ -10,7 +10,6 @@ export class AppSettings {
   @State() unit: string = "celsius";
 
   render() {
-    console.log(this.useCurrentLocation)
     return [
       <ion-header>
         <ion-toolbar color="primary">
@@ -28,7 +27,7 @@ export class AppSettings {
           
           <ion-radio-group 
             value={this.useCurrentLocation ? "current" : "preset"}
-            onIonChange={() => this.useCurrentLocation = this.useCurrentLocation ? false : true}  
+            // onIonChange={() => this.useCurrentLocation = this.useCurrentLocation ? false : true}
           >
             <ion-item>
               <ion-label>Use current location</ion-label>

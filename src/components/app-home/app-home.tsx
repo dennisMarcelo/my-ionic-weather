@@ -1,10 +1,18 @@
 import { Component, h } from '@stencil/core';
+import { Plugins } from "@capacitor/core";
+
+const { Geolocation } = Plugins;
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css',
 })
 export class AppHome {
+
+  async componetDidLoad() {
+    let coodinates = await Geolocation.getCurrentPosition();
+    console.log(coodinates)
+  }
 
   render() {
     return [
@@ -49,5 +57,5 @@ export class AppHome {
       </ion-content>
     ];
   }
-  
+
 }
