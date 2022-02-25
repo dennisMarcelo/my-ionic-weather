@@ -55,6 +55,19 @@ export class AppHome {
       console.log(err);
     }
   }
+
+  // Trigger a new request to the Weather API to refresh the data
+  async refresherHandler(event?) {
+    try {
+      this.weather = await WeatherData.refreshWeather();
+    } catch (err) {
+      console.log(err);
+    }
+
+    if (event) {
+      event.target.complete();
+    }
+  }
   
   render() {
     
@@ -71,6 +84,13 @@ export class AppHome {
       </ion-header>,
 
       <ion-content class="ion-padding">
+        <ion-refresher 
+          slot="fixed" 
+          onIonRefresh={event => this.refresherHandler(event)}
+        >
+          <ion-refresher-content />
+        </ion-refresher>
+
         <div class="weather-display">
           
           <h1>{this.weather.main.temp}</h1>
