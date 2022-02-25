@@ -8,13 +8,14 @@ const { Geolocation } = Plugins;
   styleUrl: 'app-home.css',
 })
 export class AppHome {
-
-  async componetDidLoad() {
+  
+  async componentDidLoad() {
     let coodinates = await Geolocation.getCurrentPosition();
     console.log(coodinates)
   }
-
+  
   render() {
+    
     return [
       <ion-header>
         <ion-toolbar color="primary">
