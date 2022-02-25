@@ -54,6 +54,11 @@ export class AppHome {
     } catch (err) {
       console.log(err);
     }
+
+    const router = document.querySelector("ion-router");
+    router.addEventListener("ionRouteDidChange", () => {
+      this.refresherHandler();
+    });
   }
 
   // Trigger a new request to the Weather API to refresh the data
