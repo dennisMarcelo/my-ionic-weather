@@ -22,7 +22,6 @@ export class AppSettings {
   }
 
   async handleToggleLocation(value) {
-    console.log(value);
     this.useCurrentLocation = value === "current" ? true : false;
     await SettingsData.setUseCoords(this.useCurrentLocation);
   }
