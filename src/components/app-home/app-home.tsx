@@ -1,5 +1,6 @@
 import { Component, h } from '@stencil/core';
 import { Plugins } from "@capacitor/core";
+import { SettingsData } from '../../services/settings-data';
 
 const { Geolocation } = Plugins;
 
@@ -8,10 +9,15 @@ const { Geolocation } = Plugins;
   styleUrl: 'app-home.css',
 })
 export class AppHome {
-  
+
   async componentDidLoad() {
-    let coodinates = await Geolocation.getCurrentPosition();
-    console.log(coodinates)
+    let coordinates = await Geolocation.getCurrentPosition();
+    console.log(coordinates)
+
+    await SettingsData.setCoords(
+      coordinates.coords.latitude,
+      coordinates.coords.longitude
+    );
   }
   
   render() {
