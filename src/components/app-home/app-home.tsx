@@ -12,6 +12,7 @@ const { Geolocation } = Plugins;
   styleUrl: 'app-home.css',
 })
 export class AppHome {
+  @State() weatherIcon: string = "thermometer";
   @State() weather: WeatherResponse = {
     base: "",
     clouds: null,
@@ -59,6 +60,8 @@ export class AppHome {
     router.addEventListener("ionRouteDidChange", () => {
       this.refresherHandler();
     });
+    
+    this.setWeatherIcon();
   }
 
   // Trigger a new request to the Weather API to refresh the data
@@ -69,13 +72,35 @@ export class AppHome {
       console.log(err);
     }
 
+    this.setWeatherIcon();
+
     if (event) {
       event.target.complete();
     }
   }
+
+  setWeatherIcon() {
+    let description = this.weather.weather[0].description;
+    if (description) {
+      if (description.includes("lightning") || description.includes("thunder")) {
+        this.weatherIcon = "thunderstorm";
+      } else if (description.includes("wind")) {
+        this.weatherIcon = "flag";
+      } else if (description.includes("rain") || description.includes("shower")) {
+        this.weatherIcon = "rainy";
+      }  else if (description.includes("snow") || description.includes("frost")) {
+        this.weatherIcon = "snow";
+      } else if (description.includes("cloud")) {
+        this.weatherIcon = "cloudy";
+      } else if (description.includes("sun") || description.includes("clear ")) {
+        this.weatherIcon = "sunny";
+      } else {
+        this.weatherIcon = "thermometer";
+      }
+    }
+  }
   
   render() {
-    
     return [
       <ion-header>
         <ion-toolbar color="primary">
@@ -98,6 +123,8 @@ export class AppHome {
 
         <div class="weather-display">
           
+          <ion-icon name={this.weatherIcon}></ion-icon>
+
           <h1>{this.weather.main.temp}</h1>
           <p>{this.weather.weather[0].description}</p>
 
