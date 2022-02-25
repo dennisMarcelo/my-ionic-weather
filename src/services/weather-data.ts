@@ -27,12 +27,10 @@ class WeatherDataController {
                 location.lat}&lon=${location.lng}&APPID=${this.apiKey}`);
 
             if (!response.ok) {
-                console.log(response.statusText);
                 throw new Error(response.statusText);
             }else{
                 response = await fetch(
                     `${URL_WEATHER}q=${location.name}&APPID=${this.apiKey}`);
-
                 if (!response.ok) {
                     throw new Error(response.statusText);
                 }
@@ -43,6 +41,7 @@ class WeatherDataController {
         }
 
         let weatherData = await response.json();
+       
         return this.processData(weatherData, unit);
     }
 
