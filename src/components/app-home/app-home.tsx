@@ -123,13 +123,15 @@ export class AppHome {
 
         <div class="weather-display">
           
-          <ion-icon name={this.weatherIcon}></ion-icon>
+          <ion-icon name={this.weatherIcon} />
 
-          <h1>{this.weather.main.temp}</h1>
-          <p>{this.weather.weather[0].description}</p>
+          <div class="temperature">
+            <h1>{this.weather.main.temp}</h1>
+            <p>{this.weather.weather[0].description}</p>
+          </div>
 
           <ion-card>
-            <ion-card-header>
+            <ion-card-header color="primary">
               <ion-card-subtitle>{this.weather.name}</ion-card-subtitle>
               <ion-card-title>Overview</ion-card-title>
             </ion-card-header>
