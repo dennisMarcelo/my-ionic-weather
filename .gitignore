@@ -19,6 +19,7 @@ log.txt
 .versions/
 node_modules/
 $RECYCLE.BIN/
+android
 
 .DS_Store
 Thumbs.db
