@@ -1,0 +1,39 @@
+ion-card {
+    --ion-item-background: rgba(255, 255, 255, 0.22);
+    width: 100%;
+    margin-top: auto !important;
+}
+
+ion-col {
+    font-weight: bold;
+}
+
+ion-refresher {
+    background: var(--ion-background-color);
+}
+
+.weather-display {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.weather-display h1 {
+    font-size: 2.5em;
+}
+
+.weather-display ion-icon {
+    color: #fff;
+    font-size: 10em;
+    width: 100%;
+}
+
+.weather-display  .temperature {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
